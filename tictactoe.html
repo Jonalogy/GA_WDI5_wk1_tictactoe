@@ -6,48 +6,57 @@
     <link type="text/css" rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div id="showTurn">
+      Player <span id="player">1</span>!
+    </div>
     <div class="whole">
       <div class="board">
+        <!-- Row 0 -->
+        <div class="r0">
+          <div id="r00">
+            Row 0, Cell 1
+          </div>
+          <div id="r01">
+            Row 0, Cell 2
+          </div>
+          <div id="r02">
+            Row 0, Cell 3
+          </div>
+        </div>
+
         <!-- Row 1 -->
         <div class="r1">
+          <div id="r10">
+            Row 1, Cell 0
+          </div>
           <div id="r11">
             Row 1, Cell 1
           </div>
           <div id="r12">
             Row 1, Cell 2
           </div>
-          <div id="r13">
-            Row 1, Cell 3
-          </div>
         </div>
 
         <!-- Row 2 -->
         <div class="r2">
+          <div id="r20">
+            Row 2, Cell 2
+          </div>
           <div id="r21">
-            Row 2, Cell 1
+            Row 2, Cell 2
           </div>
           <div id="r22">
             Row 2, Cell 2
           </div>
-          <div id="r23">
-            Row 2, Cell 3
-          </div>
         </div>
-
-        <!-- Row 3 -->
-        <div class="r3">
-          <div id="r31">
-            Row 3, Cell 1
-          </div>
-          <div id="r32">
-            Row 3, Cell 2
-          </div>
-          <div id="r33">
-            Row 3, Cell 3
-          </div>
-        </div>
-
       </div>
+      <div class="reset">
+        <button id="reset" type="button" name="reset">Reset</button>
+      </div>
+
     </div>
   </body>
+
+<script src="logic.js"></script>
+
 </html>

@@ -5,7 +5,7 @@
   text-align:center;
 }
 
-.r1, .r2, .r3 {
+.r1, .r2, .r0 {
   border: 1px dashed red;
   text-align: center;
   height: 108px;
@@ -16,11 +16,18 @@
 }
 
 
-.r1 div, .r2 div , .r3 div{
+.r1 div, .r2 div , .r0 div{
   border:1px dotted blue;
+  background-color: white;
   display: inline-block;
   height: 100px;
   width:100px;
   padding: 0;
   margin: 0;
+}
+
+#reset{
+  height:30px;
+  width: 100px;
+  font-weight: bold;
 }
