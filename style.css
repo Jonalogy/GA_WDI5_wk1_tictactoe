@@ -1,0 +1,26 @@
+.board {
+  border: 1px dotted black;
+  height: 350px;
+  width: 350px;
+  text-align:center;
+}
+
+.r1, .r2, .r3 {
+  border: 1px dashed red;
+  text-align: center;
+  height: 108px;
+  width: 315px;
+  display: inline-block;
+  padding:0;
+  margin: 0;
+}
+
+
+.r1 div, .r2 div , .r3 div{
+  border:1px dotted blue;
+  display: inline-block;
+  height: 100px;
+  width:100px;
+  padding: 0;
+  margin: 0;
+}
