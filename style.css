@@ -26,7 +26,7 @@
   margin: 0;
 }
 
-#reset{
+#reset, #ai{
   height:30px;
   width: 100px;
   font-weight: bold;
