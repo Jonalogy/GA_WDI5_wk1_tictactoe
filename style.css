@@ -2,13 +2,16 @@ body{
   background-image: url(wood-BG.jpg);
 }
 
-.whole{
 
-}
-
-.boardBorder{
+.tttTitle{
   text-align: center;
-  /*padding-top: 20px;*/
+}
+#ttt{
+  font-size: 40px;
+  color: white;
+  font-family: Cursive;
+  padding: 0;
+  margin: 40px auto;
 }
 
 .board {
@@ -62,8 +65,14 @@ body{
   font-weight: bold;
 }
 
+
+.boardBorder{
+  text-align: center;
+  /*padding-top: 20px;*/
+}
+
 #status{
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   font-family: Cursive;
   padding: 0;

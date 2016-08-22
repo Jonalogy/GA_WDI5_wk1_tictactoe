@@ -355,7 +355,7 @@ function reset(){
       for (j=0; j<t[i].length; j++) {
         z.push(i);
         z.push(j);
-        document.getElementById(z.join('')).style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+        document.getElementById(z.join('')).style.backgroundColor = '';
         z = ['r'];//reset z[]
       }}
 }
