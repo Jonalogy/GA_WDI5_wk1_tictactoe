@@ -58,11 +58,11 @@ body{
   /*border: 2px dotted red;*/
 }
 
-.reset, .ai{
+.start, .reset, .ai{
   display: inline-block;
 }
 
-#reset, #ai{
+#start, #reset, #ai{
   height:30px;
   width: 100px;
   font-size: 15px;

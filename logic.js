@@ -7,18 +7,24 @@ document.getElementById('r12').addEventListener('click',selectr12);
 document.getElementById('r20').addEventListener('click',selectr20);
 document.getElementById('r21').addEventListener('click',selectr21);
 document.getElementById('r22').addEventListener('click',selectr22);
+document.getElementById('start').addEventListener('click',start);
 document.getElementById('reset').addEventListener('click',reset);
 document.getElementById('ai').addEventListener('click',ai);
 
 var t = [[0,0,0],
          [0,0,0],
-         [0,0,0]]; //Track cell
-        console.log(t);
+         [0,0,0]]; //Track array
+
+var l = [[0,0,0],
+        [0,0,0],
+        [0,0,0]]; //Lock array; 0 = lock (user wont be able to change) 1 =
+
 
 var turn = 'a';// a->p1 / b->p2
 var move = 0;
 var start = 0;
-var promptTicker = 0;
+var promptSymbol = 0;
+var playerA, playerB; //To track player's choice of symbol(Ticker)
 
 
 //-----AI-----
@@ -49,7 +55,6 @@ function ai(){
           }
           else {
             document.getElementById("status").innerHTML = "It's a DRAW! Click \'Reset\' to replay the game :)";
-            // reset();
           }
         }
   }
@@ -189,69 +194,228 @@ function checkWin(){
 //-----Function for Row 0 cells-----
 
 function selectr00(){
-  id = document.getElementById('r00').id;
-  chooseTicker(id);//
-  if(start === 1){
-    selectEngine(id);
-  }
+  id = document.getElementById('r00').id
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
 
-  }
-
-  function chooseTicker(id2check){
-    foo = document.getElementById(id2check).textContent;
-      if(promptTicker === 0 ){
-        document.getElementById(id2check).textContent = 'X';
-        promptTicker = 1;
-        }
-      else if(foo ==='X'){
-        document.getElementById(id2check).textContent = '0';
-        }
-        else{
-          document.getElementById(id2check).textContent = 'X';
-        }
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
       }
-
-
+      else{
+        alert("You shall not pass!");
+      }
+  }
 function selectr01(){
   id = document.getElementById('r01').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
 }
 function selectr02(){
   id = document.getElementById('r02').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
 }
-
-
 
 //-----Function for Row 1 cells-----
 function selectr10(){
   id = document.getElementById('r10').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
 }
 function selectr11(){
   id = document.getElementById('r11').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
   }
 function selectr12(){
   id = document.getElementById('r12').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
   }
 
 //-----Function for Row 1 cells-----
 function selectr20(){
   id = document.getElementById('r20').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
   }
 function selectr21(){
   id = document.getElementById('r21').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
   }
 function selectr22(){
   id = document.getElementById('r22').id;
-  selectEngine(id);
+  var idArr = id.split('');
+  var idx = idArr.pop(); var idy = idArr.pop();
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            }
+           else if(start === 1){
+            selectEngine(id);
+            }
+      }
+    else{
+        alert("Player A needs to select X or O first!");
+      }
   }
 
 //-----Functions for player selction-----
+
+function lock(y,x){
+  for(i=0; i<l.length; i++){
+    for(j=0;j<l.length; j++){
+      l[i][j] = 1
+    }
+  }
+  l[y][x] = 0
+}
+
+function chooseTicker(id2check){
+  document.getElementById('status').innerHTML="<h2 id=\"status\">Click within the same cell to select between X or O then select 'Start'</h2>"
+  foo = document.getElementById(id2check).textContent;
+    if(promptSymbol === 0 ){
+      document.getElementById(id2check).textContent = 'X';
+      promptSymbol = 1;
+      }
+    else if(foo ==='X'){
+      document.getElementById(id2check).textContent = 'O';
+      }
+      else{
+        document.getElementById(id2check).textContent = 'X';
+      }
+    }
+
+function start(){// linked to eventListener at button 'start'
+  l = [[0,0,0],
+      [0,0,0],
+      [0,0,0]];
+  start = 1;
+  var g=['r'];
+  var ticker; //To store first player's ticker choice
+
+  for(i=0; i<t.length; i++){
+    for(j=0;j<t.length; j++){
+      g.push(i); g.push(j);
+      id = g.join('');
+      ticker = document.getElementById(id).textContent;
+
+      if(ticker==='X'){
+        playerA = ticker;
+        playerB = 'O'; //Stores ticker to variable playerA
+        document.getElementById('status').innerHTML="<h1 id=\"status\">Player <span id=\"player\">B\'s turn!</span></h1>";
+        turn = 'b';
+        }
+      else if(ticker==='O') {
+        playerA = 'O';
+        playerB = 'X';
+        document.getElementById('status').innerHTML="<h1 id=\"status\">Player <span id=\"player\">B\'s turn!</span></h1>";
+        turn = 'b';
+        }
+      g=['r'];
+      }//End of j-For loop
+    }//End of i-For loop
+}
 
 function selectEngine(id2check){
   var idArr = id2check.split('');
@@ -283,11 +447,11 @@ function playerToggle(){
 function marker(){
 
     if(turn==='a'){
-      document.getElementById(id).textContent = 'X';
+      document.getElementById(id).textContent = playerA;
       turn = 'b';
       }
     else if(turn==='b'){
-          document.getElementById(id).textContent = 'O';
+          document.getElementById(id).textContent = playerB;
           turn = 'a';
           }
   move++;
@@ -296,6 +460,8 @@ function marker(){
 function reset(){
   //console.log('Click@Reset');
   turn = 'a';
+  start = 0;
+  promptSymbol = 0;
   move = 0;
   t = [[0,0,0],
        [0,0,0],
