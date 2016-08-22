@@ -204,6 +204,54 @@ function selectr00(){
       // }
 }
 
+
+
+function selectr01(){
+  id = document.getElementById('r01').id;
+  selectEngine(id);
+}
+
+function selectr02(){
+  id = document.getElementById('r02').id;
+  selectEngine(id);
+}
+
+//-----Function for Row 1 cells-----
+function selectr10(){
+  id = document.getElementById('r10').id;
+  selectEngine(id);
+}
+
+function selectr11(){
+  id = document.getElementById('r11').id;
+  selectEngine(id);
+  }
+
+function selectr12(){
+  id = document.getElementById('r12').id;
+selectEngine(id);
+  }
+
+//-----Function for Row 1 cells-----
+function selectr20(){
+  id = document.getElementById('r20').id;
+  selectEngine(id);
+  }
+
+function selectr21(){
+  id = document.getElementById('r21').id;
+  selectEngine(id);
+  }
+
+function selectr22(){
+  id = document.getElementById('r22').id;
+  selectEngine(id);
+  }
+
+
+
+//-----Functions for player selction-----
+
 function selectEngine(id2check){
   var idArr = id2check.split('');
   var x = idArr.pop(); var y = idArr.pop();
@@ -218,119 +266,6 @@ function selectEngine(id2check){
     alert("Choose another cell");
     }
   }
-
-function selectr01(){
-  console.log("Click@r01");
-  id = document.getElementById('r01').id;
-  if (t[0][1]===0){
-    playerToggle();
-    t[0][1] = turn;
-    console.log(t[0],t[1],t[2]);
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-function selectr02(){
-  console.log("Click@r02");
-  id = document.getElementById('r02').id;
-  if (t[0][2]===0){
-    playerToggle();
-    t[0][2] = turn;
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-//-----Function for Row 1 cells-----
-function selectr10(){
-  id = document.getElementById('r10').id;
-  if (t[1][0]===0){
-    playerToggle();//Changes player's turn
-    t[1][0] = turn;
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-function selectr11(){
-  id = document.getElementById('r11').id;
-  if (t[1][1]===0){
-    playerToggle();
-    t[1][1] = turn;
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-function selectr12(){
-  id = document.getElementById('r12').id;
-  if (t[1][2]===0){
-    playerToggle();
-    t[1][2] = turn;
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-//-----Function for Row 1 cells-----
-function selectr20(){
-  id = document.getElementById('r20').id;
-  if (t[2][0]===0){
-    playerToggle();//Changes player's turn
-    t[2][0] = turn;
-    marker(); //changes color
-    checkWin();// win or not
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-function selectr21(){
-  id = document.getElementById('r21').id;
-  if (t[2][1]===0){
-    playerToggle();
-    t[2][1] = turn;
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-function selectr22(){
-  id = document.getElementById('r22').id;
-  if (t[2][2]===0){
-    playerToggle();
-    t[2][2] = turn;
-    marker();
-    checkWin();
-  }
-  else{
-    alert("Choose another cell");
-  }
-}
-
-
-
-//-----Functions for player selction-----
 
 function playerToggle(){
   var p = document.getElementById('player').textContent;
