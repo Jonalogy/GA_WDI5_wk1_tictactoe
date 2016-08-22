@@ -189,18 +189,35 @@ function checkWin(){
 function selectr00(){
   console.log("Click@r00");
   id = document.getElementById('r00').id;
-  if (t[0][0]=== 0){
-    playerToggle();
-    t[0][0] = turn;
-    console.log(t[0],t[1],t[2]);
-    marker();
-    checkWin();
-  }
+  selectEngine(id);
+  // var idArr = id.split('');
+  // var x = idArr.pop(); var y = idArr.pop();
+  // console.log(x,y);
+  // if (t[y][x]=== 0){
+  //   playerToggle();
+  //   t[y][x] = turn;
+  //   marker();
+  //   checkWin();
+      //   }
+      // else{
+      //   alert("Choose another cell");
+      // }
+}
 
+function selectEngine(id2check){
+  var idArr = id2check.split('');
+  var x = idArr.pop(); var y = idArr.pop();
+  console.log(x,y);
+  if (t[y][x]=== 0){
+    playerToggle();
+    t[y][x] = turn;
+    marker();
+    checkWin()
+    }
   else{
     alert("Choose another cell");
+    }
   }
-}
 
 function selectr01(){
   console.log("Click@r01");
@@ -332,14 +349,13 @@ function marker(){
   if(turn==='a'){
     document.getElementById(id).textContent = 'X';
     turn = 'b';
-  }
+    }
   else if(turn==='b'){
-    document.getElementById(id).textContent = 'O';
-    turn = 'a';
- }
- //console.log(t[0],t[1],t[2], "Turn = "+ turn);
- move++;
-}
+        document.getElementById(id).textContent = 'O';
+        turn = 'a';
+        }
+  move++;
+  }
 
 function reset(){
   //console.log('Click@Reset');
@@ -349,10 +365,8 @@ function reset(){
        [0,0,0],
        [0,0,0]];
   document.getElementById('status').innerHTML = '<h1 id="status">Player <span id="player">A\'s turn!</span></h1>';
-  //console.log('Array t = '+ t[0],t[1],t[2]);
 
   var z =['r'];
-
     for(i=0; i<t.length; i++){
       for (j=0; j<t[i].length; j++) {
         z.push(i);
