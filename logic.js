@@ -46,9 +46,8 @@ function ai(){
           aiz = ['r']; x = 0; y = 0;
           }
           else {
-            alert("It's a DRAW!");
-            reset();
-            return
+            document.getElementById("status").innerHTML = "It's a DRAW! Click \'Reset\' to replay the game :)";
+            // reset();
           }
         }
   }
@@ -56,7 +55,10 @@ function ai(){
 function checkWin(){
   var check = '';//init check string to empty
   console.log('Checking Win...')
-  if(move>=4){
+  if(move === 9){
+    document.getElementById("status").innerHTML = "It's a DRAW! Click \'Reset\' to replay the game :)";
+  }
+  else if(move>=4){
       //---Horizontal Tally---
         console.log('Horizontal Tallying!');
         for(i=0; i<t.length; i++){
@@ -355,7 +357,7 @@ function reset(){
       for (j=0; j<t[i].length; j++) {
         z.push(i);
         z.push(j);
-        document.getElementById(z.join('')).style.backgroundColor = '';
+        document.getElementById(z.join('')).textContent = '';
         z = ['r'];//reset z[]
       }}
 }
