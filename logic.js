@@ -23,7 +23,7 @@ var move = 0;
 
 //Senseless Random
 function ai(){
-  console.log("It's player "+turn+'\'s turn!')
+  //console.log("It's player "+turn+'\'s turn!')
 
   var aiz = ['r'];
   var x, y;
@@ -46,7 +46,7 @@ function ai(){
           aiz = ['r']; x = 0; y = 0;
           }
           else {
-            alert("No more moves!")
+            alert("It's a DRAW!");
             reset();
             return
           }
@@ -65,14 +65,12 @@ function checkWin(){
           console.log('Horizontal Checking: ');
             if(check === 'aaa' || check === 'bbb'){
               if(turn='a'){
-                alert('Player A Horizontal Win!')
+                document.getElementById("header").innerHTML = "Player A Horizontal win!";
                 check ='';
-                reset();
               }
               else {
-                alert('Player B Win!' + check)
+                document.getElementById("header").innerHTML = "Player B Horizontal win!";
                 check ='';
-                reset();
               }
             }
             else{
@@ -98,14 +96,12 @@ function checkWin(){
 
           if(check === 'aaa' || check === 'bbb'){
             if(turn='a'){
-              alert('Player A Vertical wins!')
+              document.getElementById("header").innerHTML = "Player A Vertical wins!";
               check ='';
-              reset();
               }
             else {
-              alert('Player B Vertical wins!')
+              document.getElementById("header").innerHTML = "Player B Vertical wins!";
               check ='';
-              reset();
               }
             }
           else{
@@ -132,15 +128,13 @@ function checkWin(){
           if(check==="aaa" || check ==="bbb" ){
 
               if(turn='a'){
-                alert('Player A diagonal wins!')
+                document.getElementById("header").innerHTML = "Player A Diagonal win!";
                 check ='';
-                reset();
                 xy = [];
                 }
               else {
-                alert('Player B diagonal wins!')
+                document.getElementById("header").innerHTML = "Player B Diagonal win!";
                 check ='';
-                reset();
                 xy = [];
                 }
               }
@@ -164,14 +158,12 @@ function checkWin(){
         check = xy.join('');
         if(check === 'aaa' || check === 'bbb'){
           if(turn='a'){
-            ('Player A Forward Diagonal win!')
+            document.getElementById("header").innerHTML = "Player A Diagonal win!";
             check ='';
-            reset();
             }
           else {
-            alert('Player B Forward Diagonal win!')
+            document.getElementById("header").innerHTML = "Player B Diagonal win!";
             check ='';
-            reset();
             }
           }
         else{
@@ -183,12 +175,6 @@ function checkWin(){
             console.log(t[2]);
             }
 
-        // for(i=0;i<t.length;i++){ // i is the column
-        //   for(j=((t.length)-1); j>-1; j--){
-        //     console.log("foobar "+ t[i][j]);
-        //     xy.push(t[i][j]);
-        //   }
-        // }
     }//End of if(move>=4)
     else{
           console.log('To early to check... Check in ' + (4 - move) + ' more moves' );
@@ -202,11 +188,11 @@ function selectr00(){
   console.log("Click@r00");
   id = document.getElementById('r00').id;
   if (t[0][0]=== 0){
-    playerToggle();//Changes player's turn
+    playerToggle();
     t[0][0] = turn;
     console.log(t[0],t[1],t[2]);
     marker();
-    checkWin()
+    checkWin();
   }
 
   else{
@@ -222,7 +208,7 @@ function selectr01(){
     t[0][1] = turn;
     console.log(t[0],t[1],t[2]);
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -236,7 +222,7 @@ function selectr02(){
     playerToggle();
     t[0][2] = turn;
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -250,7 +236,7 @@ function selectr10(){
     playerToggle();//Changes player's turn
     t[1][0] = turn;
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -263,7 +249,7 @@ function selectr11(){
     playerToggle();
     t[1][1] = turn;
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -276,7 +262,7 @@ function selectr12(){
     playerToggle();
     t[1][2] = turn;
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -289,8 +275,8 @@ function selectr20(){
   if (t[2][0]===0){
     playerToggle();//Changes player's turn
     t[2][0] = turn;
-    marker();
-    checkWin()
+    marker(); //changes color
+    checkWin();// win or not
   }
   else{
     alert("Choose another cell");
@@ -303,7 +289,7 @@ function selectr21(){
     playerToggle();
     t[2][1] = turn;
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -316,7 +302,7 @@ function selectr22(){
     playerToggle();
     t[2][2] = turn;
     marker();
-    checkWin()
+    checkWin();
   }
   else{
     alert("Choose another cell");
@@ -331,17 +317,16 @@ function playerToggle(){
   var p = document.getElementById('player').textContent;
   //console.log("Player "+p+" detected");
 
-  if(p==='A'){
-    document.getElementById('player').textContent = 'B';
+  if(p==='A\'s turn!'){
+    document.getElementById('player').textContent = "B\'s turn!";
   }
     else{
-      document.getElementById('player').textContent = 'A';
+      document.getElementById('player').textContent = "A\'s turn!";
     }
 }
 
 
 function marker(){
-                  // debugger
   if(turn==='a'){
     document.getElementById(id).style.backgroundColor = 'red';
     turn = 'b';
@@ -361,7 +346,7 @@ function reset(){
   t = [[0,0,0],
        [0,0,0],
        [0,0,0]];
-  document.getElementById('player').textContent = 'A';
+  document.getElementById('header').innerHTML = '<h1 id="header">Player <span id="player">A\'s turn!</span></h1>';
   //console.log('Array t = '+ t[0],t[1],t[2]);
 
   var z =['r'];

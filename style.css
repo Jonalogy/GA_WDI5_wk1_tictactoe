@@ -42,8 +42,12 @@ body{
   margin: 0;
 }
 
-butts{
+
+.butts{
+  width: 400px;
   margin: auto;
+  text-align: left;
+  /*border: 2px dotted red;*/
 }
 
 .reset, .ai{
