@@ -42,6 +42,14 @@ body{
   margin: 0;
 }
 
+butts{
+  margin: auto;
+}
+
+.reset, .ai{
+  display: inline-block;
+}
+
 #reset, #ai{
   height:30px;
   width: 100px;

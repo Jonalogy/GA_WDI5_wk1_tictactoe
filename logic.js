@@ -30,9 +30,9 @@ function ai(){
   var zz = 0;
 
   while(zz === 0){
-    x = Math.floor((Math.random()*3));
-    y = Math.floor((Math.random()*3));
-    aiz.push(y); aiz.push(x);
+    x = Math.floor((Math.random()*3));//Randomly generates row index
+    y = Math.floor((Math.random()*3));//Randomly generates column index
+    aiz.push(y); aiz.push(x); //Pushes row and column indexes into
     id = document.getElementById(aiz.join('')).id;
     console.log('AI chose ' + aiz.join(''));
     if (t[y][x]===0){
