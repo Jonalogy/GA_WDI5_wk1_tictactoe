@@ -42,6 +42,18 @@ body{
   margin: 0;
 }
 
+.butts{
+  width: 400px;
+  margin: auto;
+  display:inline-block;
+  text-align: left;
+  /*border: 2px dotted red;*/
+}
+
+.reset, .ai{
+  display: inline-block;
+}
+
 #reset, #ai{
   height:30px;
   width: 100px;
