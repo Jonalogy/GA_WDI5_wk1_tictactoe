@@ -17,6 +17,8 @@ var t = [[0,0,0],
 
 var turn = 'a';// a->p1 / b->p2
 var move = 0;
+var start = 0;
+var promptTicker = 0;
 
 
 //-----AI-----
@@ -187,49 +189,52 @@ function checkWin(){
 //-----Function for Row 0 cells-----
 
 function selectr00(){
-  console.log("Click@r00");
   id = document.getElementById('r00').id;
-  selectEngine(id);
-  // var idArr = id.split('');
-  // var x = idArr.pop(); var y = idArr.pop();
-  // console.log(x,y);
-  // if (t[y][x]=== 0){
-  //   playerToggle();
-  //   t[y][x] = turn;
-  //   marker();
-  //   checkWin();
-      //   }
-      // else{
-      //   alert("Choose another cell");
-      // }
-}
+  chooseTicker(id);//
+  if(start === 1){
+    selectEngine(id);
+  }
 
+  }
+
+  function chooseTicker(id2check){
+    foo = document.getElementById(id2check).textContent;
+      if(promptTicker === 0 ){
+        document.getElementById(id2check).textContent = 'X';
+        promptTicker = 1;
+        }
+      else if(foo ==='X'){
+        document.getElementById(id2check).textContent = '0';
+        }
+        else{
+          document.getElementById(id2check).textContent = 'X';
+        }
+      }
 
 
 function selectr01(){
   id = document.getElementById('r01').id;
   selectEngine(id);
 }
-
 function selectr02(){
   id = document.getElementById('r02').id;
   selectEngine(id);
 }
+
+
 
 //-----Function for Row 1 cells-----
 function selectr10(){
   id = document.getElementById('r10').id;
   selectEngine(id);
 }
-
 function selectr11(){
   id = document.getElementById('r11').id;
   selectEngine(id);
   }
-
 function selectr12(){
   id = document.getElementById('r12').id;
-selectEngine(id);
+  selectEngine(id);
   }
 
 //-----Function for Row 1 cells-----
@@ -237,18 +242,14 @@ function selectr20(){
   id = document.getElementById('r20').id;
   selectEngine(id);
   }
-
 function selectr21(){
   id = document.getElementById('r21').id;
   selectEngine(id);
   }
-
 function selectr22(){
   id = document.getElementById('r22').id;
   selectEngine(id);
   }
-
-
 
 //-----Functions for player selction-----
 
@@ -273,22 +274,22 @@ function playerToggle(){
 
   if(p==='A\'s turn!'){
     document.getElementById('player').textContent = "B\'s turn!";
-  }
+    }
     else{
       document.getElementById('player').textContent = "A\'s turn!";
     }
-}
-
+  }
 
 function marker(){
-  if(turn==='a'){
-    document.getElementById(id).textContent = 'X';
-    turn = 'b';
-    }
-  else if(turn==='b'){
-        document.getElementById(id).textContent = 'O';
-        turn = 'a';
-        }
+
+    if(turn==='a'){
+      document.getElementById(id).textContent = 'X';
+      turn = 'b';
+      }
+    else if(turn==='b'){
+          document.getElementById(id).textContent = 'O';
+          turn = 'a';
+          }
   move++;
   }
 
