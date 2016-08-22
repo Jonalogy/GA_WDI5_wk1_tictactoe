@@ -1,5 +1,5 @@
 body{
-  background-color: #70CC39;
+  background-image: url(wood-BG.jpg);
 }
 
 .whole{
@@ -15,27 +15,30 @@ body{
   background-color: rgba(0, 0, 0, 0.75);
   border: 1px dotted black;
   height: 328px;
-  width: 400px;
+  width: 328px;
   text-align:center;
   margin: auto;
-  padding: 35px 0;
+  /*padding: 35px 0;*/
 }
 
 .r1, .r2, .r0 {
   /*border: 1px dashed red;*/
   text-align: center;
   height: 108px;
-  width: 350px;
-  display: inline-block;
+  width: 330px;
+  /*display: inline-block;*/
+  float:left;
   padding:0;
   margin: 0;
+  border-collapse: collapse;
 }
 
 
 .r1 div, .r2 div , .r0 div{
-  border:2px solid blue;
-  background-color: white;
-  display: inline-block;
+  border:5px solid white;
+  border-collapse: collapse;
+  /*background-color: rgba(0, 0, 0, 0.75);*/
+  float: left;
   height: 100px;
   width:100px;
   padding: 0;
@@ -60,7 +63,7 @@ body{
   font-weight: bold;
 }
 
-#header{
+#status{
   font-size: 30px;
   color: white;
   font-family: Cursive;

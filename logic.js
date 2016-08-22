@@ -65,11 +65,11 @@ function checkWin(){
           console.log('Horizontal Checking: ');
             if(check === 'aaa' || check === 'bbb'){
               if(turn='a'){
-                document.getElementById("header").innerHTML = "Player A Horizontal win!";
+                document.getElementById("status").innerHTML = "Player A Horizontal win!";
                 check ='';
               }
               else {
-                document.getElementById("header").innerHTML = "Player B Horizontal win!";
+                document.getElementById("status").innerHTML = "Player B Horizontal win!";
                 check ='';
               }
             }
@@ -96,11 +96,11 @@ function checkWin(){
 
           if(check === 'aaa' || check === 'bbb'){
             if(turn='a'){
-              document.getElementById("header").innerHTML = "Player A Vertical wins!";
+              document.getElementById("status").innerHTML = "Player A Vertical wins!";
               check ='';
               }
             else {
-              document.getElementById("header").innerHTML = "Player B Vertical wins!";
+              document.getElementById("status").innerHTML = "Player B Vertical wins!";
               check ='';
               }
             }
@@ -128,12 +128,12 @@ function checkWin(){
           if(check==="aaa" || check ==="bbb" ){
 
               if(turn='a'){
-                document.getElementById("header").innerHTML = "Player A Diagonal win!";
+                document.getElementById("status").innerHTML = "Player A Diagonal win!";
                 check ='';
                 xy = [];
                 }
               else {
-                document.getElementById("header").innerHTML = "Player B Diagonal win!";
+                document.getElementById("status").innerHTML = "Player B Diagonal win!";
                 check ='';
                 xy = [];
                 }
@@ -158,11 +158,11 @@ function checkWin(){
         check = xy.join('');
         if(check === 'aaa' || check === 'bbb'){
           if(turn='a'){
-            document.getElementById("header").innerHTML = "Player A Diagonal win!";
+            document.getElementById("status").innerHTML = "Player A Diagonal win!";
             check ='';
             }
           else {
-            document.getElementById("header").innerHTML = "Player B Diagonal win!";
+            document.getElementById("status").innerHTML = "Player B Diagonal win!";
             check ='';
             }
           }
@@ -346,7 +346,7 @@ function reset(){
   t = [[0,0,0],
        [0,0,0],
        [0,0,0]];
-  document.getElementById('header').innerHTML = '<h1 id="header">Player <span id="player">A\'s turn!</span></h1>';
+  document.getElementById('status').innerHTML = '<h1 id="status">Player <span id="player">A\'s turn!</span></h1>';
   //console.log('Array t = '+ t[0],t[1],t[2]);
 
   var z =['r'];
@@ -355,7 +355,7 @@ function reset(){
       for (j=0; j<t[i].length; j++) {
         z.push(i);
         z.push(j);
-        document.getElementById(z.join('')).style.backgroundColor = 'white';
+        document.getElementById(z.join('')).style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
         z = ['r'];//reset z[]
       }}
 }
