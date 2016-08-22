@@ -328,11 +328,11 @@ function playerToggle(){
 
 function marker(){
   if(turn==='a'){
-    document.getElementById(id).style.backgroundColor = 'red';
+    document.getElementById(id).textContent = 'X';
     turn = 'b';
   }
   else if(turn==='b'){
-    document.getElementById(id).style.backgroundColor = 'blue';
+    document.getElementById(id).textContent = 'O';
     turn = 'a';
  }
  //console.log(t[0],t[1],t[2], "Turn = "+ turn);
