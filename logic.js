@@ -65,12 +65,12 @@ function checkWin(){
           console.log('Horizontal Checking: ');
             if(check === 'aaa' || check === 'bbb'){
               if(turn='a'){
-                confirm('Player A Horizontal Win!')
+                alert('Player A Horizontal Win!')
                 check ='';
                 reset();
               }
               else {
-                confirm('Player B Win!' + check)
+                alert('Player B Win!' + check)
                 check ='';
                 reset();
               }
@@ -98,12 +98,12 @@ function checkWin(){
 
           if(check === 'aaa' || check === 'bbb'){
             if(turn='a'){
-              confirm('Player A Vertical wins!')
+              alert('Player A Vertical wins!')
               check ='';
               reset();
               }
             else {
-              confirm('Player B Vertical wins!')
+              alert('Player B Vertical wins!')
               check ='';
               reset();
               }
@@ -132,13 +132,13 @@ function checkWin(){
           if(check==="aaa" || check ==="bbb" ){
 
               if(turn='a'){
-                confirm('Player A diagonal wins!')
+                alert('Player A diagonal wins!')
                 check ='';
                 reset();
                 xy = [];
                 }
               else {
-                confirm('Player B diagonal wins!')
+                alert('Player B diagonal wins!')
                 check ='';
                 reset();
                 xy = [];
@@ -164,12 +164,12 @@ function checkWin(){
         check = xy.join('');
         if(check === 'aaa' || check === 'bbb'){
           if(turn='a'){
-            confirm('Player A Forward Diagonal win!')
+            ('Player A Forward Diagonal win!')
             check ='';
             reset();
             }
           else {
-            confirm('Player B Forward Diagonal win!')
+            alert('Player B Forward Diagonal win!')
             check ='';
             reset();
             }
@@ -193,9 +193,6 @@ function checkWin(){
     else{
           console.log('To early to check... Check in ' + (4 - move) + ' more moves' );
           }
-
-
-
   }//checkWin() end
 
 

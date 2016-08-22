@@ -1,15 +1,31 @@
+body{
+  background-color: #70CC39;
+}
+
+.whole{
+
+}
+
+.boardBorder{
+  text-align: center;
+  /*padding-top: 20px;*/
+}
+
 .board {
+  background-color: rgba(0, 0, 0, 0.75);
   border: 1px dotted black;
-  height: 350px;
-  width: 350px;
+  height: 328px;
+  width: 400px;
   text-align:center;
+  margin: auto;
+  padding: 35px 0;
 }
 
 .r1, .r2, .r0 {
-  border: 1px dashed red;
+  /*border: 1px dashed red;*/
   text-align: center;
   height: 108px;
-  width: 315px;
+  width: 350px;
   display: inline-block;
   padding:0;
   margin: 0;
@@ -17,7 +33,7 @@
 
 
 .r1 div, .r2 div , .r0 div{
-  border:1px dotted blue;
+  border:2px solid blue;
   background-color: white;
   display: inline-block;
   height: 100px;
@@ -30,4 +46,12 @@
   height:30px;
   width: 100px;
   font-weight: bold;
+}
+
+#header{
+  font-size: 30px;
+  color: white;
+  font-family: Cursive;
+  padding: 0;
+  margin: 10px,0,0,0;
 }
