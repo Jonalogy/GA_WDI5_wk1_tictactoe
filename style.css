@@ -12,8 +12,7 @@ body{
 }
 
 .board {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 1px dotted black;
+  background-color: rgba(132, 105, 7, 0.70);
   height: 328px;
   width: 328px;
   text-align:center;
@@ -22,7 +21,7 @@ body{
 }
 
 .r1, .r2, .r0 {
-  /*border: 1px dashed red;*/
+  /*border: 1px solid white;*/
   text-align: center;
   height: 108px;
   width: 330px;
@@ -47,7 +46,7 @@ body{
 
 
 .butts{
-  width: 400px;
+  width: 330px;
   margin: auto;
   text-align: left;
   /*border: 2px dotted red;*/
