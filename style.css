@@ -54,8 +54,7 @@ body{
 .butts{
   width: 330px;
   margin: auto;
-  text-align: left;
-  /*border: 2px dotted red;*/
+  text-align: center;
 }
 
 .start, .reset, .ai{

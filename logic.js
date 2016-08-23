@@ -31,25 +31,38 @@ var playerA, playerB; //To track player's choice of symbol(Ticker)
 
 //Senseless Random
 function ai(){
-  //console.log("It's player "+turn+'\'s turn!')
-
   var aiz = ['r'];
   var x, y;
-  var zz = 0;
+  var zz = 0;//To aid in radom cell selection
 
-  while(zz === 0){
-    x = Math.floor((Math.random()*3));//Randomly generates row index
-    y = Math.floor((Math.random()*3));//Randomly generates column index
-    aiz.push(y); aiz.push(x); //Pushes row and column indexes into
-    id = document.getElementById(aiz.join('')).id;
-    console.log('AI chose ' + aiz.join(''));
-    if (t[y][x]===0){
-      playerToggle();
-      t[y][x] = turn;
-      marker();
-      checkWin();
-      zz = 1;//To exit while-loop
+  while(zz === 0){ //Randomly chooses a cell
+    idx = Math.floor((Math.random()*3));//Randomly generates row index
+    idy = Math.floor((Math.random()*3));//Randomly generates column index
+    aiz.push(idy); aiz.push(idx); //Pushes row and column indexes into
+    id = aiz.join('');//Creates row ID
+
+    if(l[idy][idx]===0){
+      if(start === 0){
+            lock(idy,idx)
+            chooseTicker(id);
+            return;
+            }
+           else if(start === 1){
+            selectEngine(id,true);
+            }
       }
+
+
+
+
+
+    // if (t[y][x]===0){
+    //   playerToggle();
+    //   t[y][x] = turn;
+    //   marker();
+    //   checkWin();
+    //   zz = 1;//To exit while-loop
+    //   }
     else if(move<9) {
           aiz = ['r']; x = 0; y = 0;
           }
@@ -59,6 +72,8 @@ function ai(){
         }
   }
 
+
+//-----Win Tally Logic-----
 function checkWin(){
   var check = '';//init check string to empty
   console.log('Checking Win...')
@@ -190,9 +205,7 @@ function checkWin(){
           }
   }//checkWin() end
 
-
 //-----Function for Row 0 cells-----
-
 function selectr00(){
   id = document.getElementById('r00').id
   var idArr = id.split('');
@@ -371,7 +384,11 @@ function lock(y,x){
   l[y][x] = 0
 }
 
-function chooseTicker(id2check){
+function chooseTicker(id2check,aimode){
+  if(aimode === true){
+
+  }
+
   document.getElementById('status').innerHTML="<h2 id=\"status\">Click within the same cell to select between X or O then select 'Start'</h2>"
   foo = document.getElementById(id2check).textContent;
     if(promptSymbol === 0 ){
@@ -417,7 +434,7 @@ function start(){// linked to eventListener at button 'start'
     }//End of i-For loop
 }
 
-function selectEngine(id2check){
+function selectEngine(id2check,aiMode){
   var idArr = id2check.split('');
   var x = idArr.pop(); var y = idArr.pop();
   console.log(x,y);
@@ -427,9 +444,9 @@ function selectEngine(id2check){
     marker();
     checkWin()
     }
-  else{
-    alert("Choose another cell");
-    }
+  else if(aiMode===false){
+          alert("Choose another cell");
+          }
   }
 
 function playerToggle(){
