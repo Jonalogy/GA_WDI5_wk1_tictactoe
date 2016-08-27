@@ -251,7 +251,6 @@ function gameButler(idx,idy){
         else if(start===0 && l[idy][idx]!=0){
           chooseTicker(id);
         }
-
     }//End of gameButler()
 
 function selectr00(){
