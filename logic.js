@@ -22,7 +22,7 @@ var l = [[0,0,0],
 
 var turn = 'a';// a = plater 1 (p1)
 var move = 0; //One round has a maximum of  9 moves.
-var start = 0; //Tracks if game has started
+var start = 0; // 0 = Game yet to start | 1 = In Game | 2 = Game ended
 var promptSymbol = 0;
 var playerA, playerB; //To keep track player's choice of ticker(symbol)
 
@@ -86,7 +86,7 @@ function ai(){
           aiz = ['r']; x = 0; y = 0;
           }
           else {
-            document.getElementById("status").innerHTML = "It's a DRAW! Click \'Reset\' to replay the game :)";
+            document.getElementById("status").innerHTML = "<h1 id='status'>It's a DRAW! Click \'Reset\' to replay the game :)</h1>";
           }
         }
   }
@@ -97,7 +97,7 @@ function checkWin(){
   var check = '';//init check string to empty
   console.log('Checking Win...')
   if(move === 9){ //checks if 9 moves have been made, if yes game is tied!
-    document.getElementById("status").innerHTML = "It's a DRAW! Click \'Reset\' to replay the game :)";
+    document.getElementById("status").innerHTML = "<h1 id= 'status' >It's a DRAW! Reset the game to replay :)</h1>";
   }
   else if(move>4){ //Only starts checking after 5 moves have been made!
       //---Horizontal Tally---
@@ -108,11 +108,13 @@ function checkWin(){
           console.log('Horizontal Checking: ');
             if(check === 'aaa' || check === 'bbb'){
               if(turn='a'){
-                document.getElementById("status").innerHTML = "Player A Horizontal win!";
+                document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>A's Horizontal Win!</span></h1>";
+                start = 2;
                 check ='';
               }
               else {
-                document.getElementById("status").innerHTML = "Player B Horizontal win!";
+                document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>B's Horizontal Win!</span></h1>";
+                start = 2;
                 check ='';
               }
             }
@@ -136,12 +138,14 @@ function checkWin(){
 
           if(check === 'aaa' || check === 'bbb'){
             if(turn='a'){
-              document.getElementById("status").innerHTML = "Player A Vertical wins!";
+              document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>A's Vertical Win!</span></h1>";
               check ='';
+              start = 2;
               }
             else {
-              document.getElementById("status").innerHTML = "Player B Vertical wins!";
+              document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>B's Horizontal Win!</span></h1>";
               check ='';
+              start = 2;
               }
             }
           else{
@@ -168,14 +172,16 @@ function checkWin(){
           if(check==="aaa" || check ==="bbb" ){
 
               if(turn='a'){
-                document.getElementById("status").innerHTML = "Player A Diagonal win!";
+                document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>A's Backward Diagonal Win!</span></h1>";
                 check ='';
                 xy = [];
+                start = 2;
                 }
               else {
-                document.getElementById("status").innerHTML = "Player B Diagonal win!";
+                document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>B's Backward Diagonal Win!</span></h1>";
                 check ='';
                 xy = [];
+                start = 2;
                 }
               }
 
@@ -198,12 +204,14 @@ function checkWin(){
         check = xy.join('');
         if(check === 'aaa' || check === 'bbb'){
           if(turn='a'){
-            document.getElementById("status").innerHTML = "Player A Diagonal win!";
+            document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>A's Forward Diagonal Win!</span></h1>";
             check ='';
+            start = 2;
             }
           else {
-            document.getElementById("status").innerHTML = "Player B Diagonal win!";
+            document.getElementById("status").innerHTML = "<h1 id='status'>Player <span id='status'>B's Forward Diagonal Win!</span></h1>";
             check ='';
+            start = 2;
             }
           }
         else{
@@ -227,20 +235,20 @@ function gameButler(idx,idy){
     var move1 = l[0].join('') + l[1].join('') + l[2].join('');
     console.log(move1);
     console.log("l[] array: ", l[0],l[1],l[2]);
-    if(l[idy][idx]===0){
-        if(start === 0 && move1==='000000000') {
-            chooseTicker(id);
-            lock(idy,idx);
-            }
+      if(l[idy][idx]===0){
+          if(start === 0 && move1==='000000000') {
+              chooseTicker(id);
+              lock(idy,idx);
+              }
 
-        if(start === 1){
-          selectEngine(id);
-          lock(idy,idx);
+          if(start === 1){
+            selectEngine(id);
+            lock(idy,idx);
+          }
         }
-      }
-      else if(start===0 && l[idy][idx]!=0){
-        chooseTicker(id);
-      }
+        else if(start===0 && l[idy][idx]!=0){
+          chooseTicker(id);
+        }
 
     }//End of gameButler()
 
@@ -382,16 +390,17 @@ function selectEngine(id2check,aiMode){
   }
 
 function playerToggle(){
-  var p = document.getElementById('player').textContent;
-  //console.log("Player "+p+" detected");
 
-  if(p==='A\'s turn!'){
-    document.getElementById('player').textContent = "B\'s turn!";
-    }
-    else{
-      document.getElementById('player').textContent = "A\'s turn!";
-    }
-  }
+  if(start===1)
+    var p = document.getElementById('player').textContent;
+    if(p==='A\'s turn!'){
+      document.getElementById('player').textContent = "B\'s turn!";
+      }
+      else{
+        document.getElementById('player').textContent = "A\'s turn!";
+      }
+
+  }//End of playerToggle
 
 function marker(){
 
@@ -414,14 +423,14 @@ function reset(){
   move = 0;
   t = [[0,0,0],[0,0,0],[0,0,0]];
   l = [[0,0,0],[0,0,0],[0,0,0]];
-  document.getElementById('status').innerHTML = '<h1 id="status">Player <span id="player">A\'s turn!</span></h1>';
+  document.getElementById('status').innerHTML = "<h1 id='status'>Player <span id='player'>A\'s turn!</span></h1>";
 
-  var z =['r'];
+  var z =['r'];//Temporary array to aid in resetting the board
     for(i=0; i<t.length; i++){
       for (j=0; j<t[i].length; j++) {
         z.push(i);
         z.push(j);
-        document.getElementById(z.join('')).textContent = '';
+        document.getElementById(z.join('')).textContent  = '';
         z = ['r'];//reset z[]
       }}
 }
