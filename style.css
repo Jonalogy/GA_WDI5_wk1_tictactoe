@@ -6,12 +6,19 @@ body{
 .tttTitle{
   text-align: center;
 }
-#ttt{
+#ticTacToe{
   font-size: 40px;
   color: white;
   font-family: Cursive;
   padding: 0;
-  margin: 40px auto;
+  margin: 40px auto 5px auto;
+}
+#version{
+  font-size: 20px;
+  color: white;
+  font-family: Cursive;
+  padding: 0;
+  margin: 5px auto 20px auto;;
 }
 
 .board {

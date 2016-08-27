@@ -9,7 +9,7 @@ document.getElementById('r21').addEventListener('click',selectr21);
 document.getElementById('r22').addEventListener('click',selectr22);
 document.getElementById('start').addEventListener('click',start);
 document.getElementById('reset').addEventListener('click',reset);
-document.getElementById('ai').addEventListener('click',ai);
+// document.getElementById('ai').addEventListener('click',ai);
 
 var t = [[0,0,0],
          [0,0,0],
@@ -26,72 +26,6 @@ var start = 0; // 0 = Game yet to start | 1 = In Game | 2 = Game ended
 var promptSymbol = 0;
 var playerA, playerB; //To keep track player's choice of ticker(symbol)
 document.getElementById('start').disabled=true;
-
-
-//-----AI-----
-
-// function aiTest() {
-//   var empty = [];
-//   var aiz = ['r'];
-//   var ii;
-//
-//   for (i=0; i<t.length; i++){
-//       for (j=0;j<t.length; j++){
-//         if (t[i][j]===0){
-//           aiz.push(i); aiz.push(j);
-//           ii=aiz.join('');
-//           empty.push(ii);
-//           aiz = ['r'];
-//         }
-//       }
-//     }
-//
-//   emptyCellsLeft = empty.length;
-//   emptyRandom = Math.floor((Math.random()*emptyCellsLeft));
-//
-//   ii = 0;// Reset
-//   empty = []// Reset
-// }
-
-
-//Senseless Random
-function ai(){
-  var aiz = ['r'];
-  var x, y;
-  var zz = 0;//To aid in radom cell selection
-
-  while(zz === 0){ //Randomly chooses a cell
-    idx = Math.floor((Math.random()*3));//Randomly generates row index
-    idy = Math.floor((Math.random()*3));//Randomly generates column index
-    aiz.push(idy); aiz.push(idx); //Pushes row and column indexes into
-    id = aiz.join('');//Creates row ID
-
-    if(l[idy][idx]===0){
-      if(start === 0){
-            lock(idy,idx)
-            chooseTicker(id);
-            return;
-            }
-           else if(start === 1){
-            selectEngine(id,true);
-            }
-      }
-    // if (t[y][x]===0){
-    //   playerToggle();
-    //   t[y][x] = turn;
-    //   marker();
-    //   checkWin();
-    //   zz = 1;//To exit while-loop
-    //   }
-    else if(move<9) {
-          aiz = ['r']; x = 0; y = 0;
-          }
-          else {
-            document.getElementById("status").innerHTML = "<h1 id='status'>It's a DRAW! Click \'Reset\' to replay the game :)</h1>";
-          }
-        }
-  }
-
 
 //-----Win Tally Logic-----
 function checkWin(){
@@ -318,10 +252,7 @@ function lock(y,x){
     l[y][x] = 1;
   }
 
-function chooseTicker(id2check,aimode){
-  if(aimode === true){
-
-  }
+function chooseTicker(id2check){
 
   document.getElementById('status').innerHTML="<h2 id=\"status\">Click within the same cell to select between X or O then select 'Start'</h2>"
   foo = document.getElementById(id2check).textContent;
@@ -376,7 +307,7 @@ function start(){// linked to eventListener at button 'start'
     }//End of i-For loop
 }
 
-function selectEngine(id2check,aiMode){
+function selectEngine(id2check){
   var idArr = id2check.split('');
   var x = idArr.pop(); var y = idArr.pop();
   console.log(x,y);
@@ -386,9 +317,9 @@ function selectEngine(id2check,aiMode){
     marker();
     checkWin()
     }
-  else if(aiMode===false){
-          alert("Choose another cell");
-          }
+  // else if(aiMode===false){
+  //         alert("Choose another cell");
+  //         }
   }
 
 function playerToggle(){
