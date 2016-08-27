@@ -25,6 +25,7 @@ var move = 0; //One round has a maximum of  9 moves.
 var start = 0; // 0 = Game yet to start | 1 = In Game | 2 = Game ended
 var promptSymbol = 0;
 var playerA, playerB; //To keep track player's choice of ticker(symbol)
+document.getElementById('start').disabled=true;
 
 
 //-----AI-----
@@ -237,6 +238,7 @@ function gameButler(idx,idy){
     console.log("l[] array: ", l[0],l[1],l[2]);
       if(l[idy][idx]===0){
           if(start === 0 && move1==='000000000') {
+              document.getElementById('start').disabled=false;
               chooseTicker(id);
               lock(idy,idx);
               }
@@ -337,6 +339,7 @@ function chooseTicker(id2check,aimode){
     }
 
 function start(){// linked to eventListener at button 'start'
+  document.getElementById('start').disabled=true;
   l = [[0,0,0],
       [0,0,0],
       [0,0,0]];
@@ -421,6 +424,7 @@ function reset(){
   start = 0;
   promptSymbol = 0;
   move = 0;
+  document.getElementById('start').disabled=true;
   t = [[0,0,0],[0,0,0],[0,0,0]];
   l = [[0,0,0],[0,0,0],[0,0,0]];
   document.getElementById('status').innerHTML = "<h1 id='status'>Player <span id='player'>A\'s turn!</span></h1>";
